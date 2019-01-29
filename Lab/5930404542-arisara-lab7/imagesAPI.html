@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Image Data</title>
+</head>
+
+<body>
+
+    <section></section>
+    <ol id="myList">
+
+
+    </ol>
+
+    <script>
+        var req = new XMLHttpRequest();
+        var reqURL = 'https://api.data.go.th/search_virtuoso/api/dataset/query?dsname=vir_237_1535648421&loadAll=1&type=json&limit=10';
+        req.open('GET', reqURL);
+        req.responseType = 'json';
+        req.send()
+
+        req.onload = function () {
+
+            var myList = document.getElementById('myList');
+
+            var myArray = req.response['data'];
+            var arraySize = myArray.length;
+
+            var myText = document.createElement('h1');
+            myText.innerHTML = 'Open Data Images';
+            document.querySelector('section').appendChild(myText);
+
+            for (var i = 0; i < arraySize; i++) {
+                var myItem = document.createElement('li');
+                var myImg = document.createElement('img');
+
+                myImg.setAttribute('src', myArray[i].thumb_pic);
+
+                myItem.appendChild(myImg);
+                myList.appendChild(myItem);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

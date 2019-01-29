@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Simple DOM example</title>
+</head>
+
+<body>
+    <section>
+        <a>
+            <img></img>
+        </a>
+        <p></p>
+    </section>
+
+    <script>
+        var sect = document.querySelector('section');
+        var link = document.querySelector('a');
+        var img = document.querySelector('img');
+        link.href = "https://www.en.kku.ac.th/web/";
+        // link.setAttribute('href','www.xxx.com');
+        link.target = '_blank_';
+        // link.setAttribute('target','_blank');
+        img.setAttribute('src', 'images/en-kku.jpg')
+        img.setAttribute('width', '50%');
+        // image.style.width = '50%';
+        sect.appendChild(link);
+        var para = document.createElement('p');
+        para.textContent = 'We hope you enjoy learning';
+        sect.appendChild(para);
+
+        para.style.color = 'white';
+        para.style.backgroundColor = 'black';
+        para.style.padding = '10px';
+        para.style.width = '655px';
+        para.style.textAlign = 'center';
+        para.style.marginLeft = 'auto';
+        para.style.marginRight = 'auto';
+
+        img.style.margin = '0 auto';
+        img.style.display = 'block';
+        
+    </script>
+
+</body>
+
+</html>

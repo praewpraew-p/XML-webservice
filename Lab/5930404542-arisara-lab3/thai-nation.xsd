@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://arisara.in.th"
+            xmlns:tns="http://arisara.in.th"
+            elementFormDefault="qualified">
+    
+    <xsd:element name="nation">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="name"
+                             type="xsd:string"/>
+                <xsd:element name="location"
+                             type="xsd:string"/>
+                <xsd:element name="population">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>   
+                            <xsd:element name="median_age" type="xsd:integer"/>
+                            <xsd:element name="global_rank" type="xsd:integer"/>  
+                        </xsd:sequence>   
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="id" type="xsd:string"/>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

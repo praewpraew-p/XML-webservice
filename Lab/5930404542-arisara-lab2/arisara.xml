@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<MyProfile>
+	<name> 
+		<fullname> Arisara Phongsai </fullname>
+		<nickname> Praew </nickname>
+	</name>
+	<about_me>
+		My e-mail is <email> arisara_p@kkumail.com </email>
+		I live in <address> Kao-lung Dormitery, Khon Kaen University </address>
+		My hobbies are
+		<hobbies> 
+		<hobby id = "01"> read a book </hobby>
+		<hobby id = "02"> listen to music </hobby>
+		<hobby id = "03"> watch movie </hobby>
+		</hobbies>
+		Contact me: <facebook> Arisara Phongsai </facebook>
+	</about_me>
+</MyProfile>
+	 

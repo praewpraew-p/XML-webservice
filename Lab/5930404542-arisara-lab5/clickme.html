@@ -1,0 +1,37 @@
+<!DOCTYPE>
+
+<html>
+
+    <head>
+            <meta charset="utf-8">
+            <title>Click Me!</title>
+            <script>
+                document.addEventListener("DOMContentLoaded", function(){
+                    var plus = 0;
+                    function createParagraph() {
+                        var para = document.getElementById('text');
+                        
+                        plus++;
+                        if (plus == 1) {
+                            para.textContent = 'You clicked the button ' + plus + ' time';
+                        } else {
+                            para.textContent = 'You clicked the button ' + plus + ' times';
+                        }
+                        
+                        document.body.appendChild(para);
+                    }
+
+                    var buttons = document.querySelectorAll('button');
+                    for (var i = 0; i < buttons.length; i++) {
+                        buttons[i].addEventListener('click', createParagraph);
+                    }
+                    
+                });
+            </script>
+    </head>
+    <body>
+            <button> Click me </button>
+            <p id='text'></p>
+    </body>
+    
+</html>

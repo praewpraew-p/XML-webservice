@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>KKU Activities</title>
+    <style>
+        img {
+            height: auto;
+            width: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <section></section>
+    <ol id='orderList'></ol>
+    <script>
+        var requestJSON = new XMLHttpRequest();
+        requestJSON.open('GET', 'activities.json');
+        requestJSON.responseType = 'json';
+        requestJSON.send();
+
+        requestJSON.onload = function () {
+            var orderList = document.getElementById('orderList');
+            var myTopic = document.createElement('h1');
+            myTopic.innerHTML = 'Current KKU Activities';
+            document.querySelector('section').appendChild(myTopic);
+
+            var linkArray = requestJSON.response['activities'];
+            var arraySize = linkArray.length;
+
+            for (var i = 0; i < arraySize; i++){
+                var myList = document.createElement('li');
+                var myImage = document.createElement('img');
+                var myLink = document.createElement('a');
+                var myBr = document.createElement('br');
+                var date = linkArray[i].dateSt;
+                var time = linkArray[i].timeSt;
+                var phoneNum = linkArray[i].contact.phone;
+                var title = linkArray[i].title;
+                var text = 'Date:'+ date + ' time:' + time + ' if interested, call ' + phoneNum + '<br/>';
+
+                myList.innerHTML = text;
+                myLink.textContent = title;
+                myLink.setAttribute('href', linkArray[i].url);
+                myLink.appendChild(myBr);
+
+                myImage.setAttribute('src', linkArray[i].image);
+                myList.appendChild(myLink);
+                myList.appendChild(myImage);
+                orderList.appendChild(myList)
+            }
+        }
+    </script>
+
+</body>
+
+</html>

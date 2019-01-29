@@ -1,0 +1,14 @@
+{
+  "name": "arisara-phongsai-198371-2018-quiz2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "news-api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

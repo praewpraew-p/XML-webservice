@@ -1,0 +1,22 @@
+h1 {
+    color: green;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+    border: 5px solid black;
+    padding: 0 20px 20px 20 px;
+}
+
+body {
+    width: 1200px;
+}
+
+#para1 {
+    background-color: blue;
+}
+
+#para2 {
+    background-color: cornflowerblue;
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OilPrice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns="http://ptt.com"
+          xsi:schemaLocation="http://ptt.com ptt.xsd">
+    
+    <CurrentOilPrice>
+        <Language></Language>
+    </CurrentOilPrice>
+    
+    <CurrentOilPriceResponse>
+        <CurrentOilPriceResult></CurrentOilPriceResult>
+    </CurrentOilPriceResponse>
+    
+    <GetOilPrice>
+        <Language></Language>
+        <DD>27</DD>
+        <MM>05</MM>
+        <YYYY>1998</YYYY>
+    </GetOilPrice>
+    
+    <GetOilPriceResponse>
+        <GetOilPriceResult></GetOilPriceResult>
+    </GetOilPriceResponse>
+    
+</OilPrice>

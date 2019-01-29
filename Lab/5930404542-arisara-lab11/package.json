@@ -1,0 +1,14 @@
+{
+  "name": "5930404542-arisara-lab11",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ex_readfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonfile": "^5.0.0"
+  }
+}

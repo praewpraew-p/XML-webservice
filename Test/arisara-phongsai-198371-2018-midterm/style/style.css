@@ -1,0 +1,85 @@
+h1 {
+    color: black;
+    text-align: center;
+}
+
+.link {
+    width:20%;
+    height:auto;
+    float:left;
+}
+
+.body {
+    width:80%;
+    height:auto;
+    float:right;
+}
+
+img {
+    display: block;
+    margin: 0 auto;
+}
+
+#quote {
+    color: brown;
+}
+
+#author {
+    color: deeppink;
+    line-height: 0;
+}
+
+table {
+    display: table;
+    width: 100%;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, tr, td {
+    border: 1px solid black;
+}
+
+#redFont {
+    text-align: center;
+    color: red;
+    height: 50px;
+}
+
+table.eng {
+    display: table;
+    border: none;
+}
+
+tr.eng , td.eng {
+    border: none;
+}
+
+li.square { 
+    list-style-type: none;
+}
+
+li.square::before {
+    content: "▪";
+    color: blue; 
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}

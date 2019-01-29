@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>ฟอร์มสั่งซื้อหนังสือ</title>
+    <style>
+        html {
+            padding: 16px;
+        }
+
+        h1 {
+            font-size: 50pt;
+            font-weight: bold;
+            margin-top: 0.3rem;
+            margin-bottom: 0;
+            border-top: 1rem;
+            border-bottom: 0px;
+            padding: 0 auto 2px auto;
+            height: 1.2em;
+            text-align: center;
+        }
+
+        p {
+            margin: 0.1em auto;
+            border: 0.1em auto;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 3px;
+            border-bottom: 3px;
+            padding-bottom: 2px;
+        }
+
+        input {
+            width: 100%;
+            display: block;
+            overflow: hidden;
+            border: none;
+            border-right: 100%;
+            box-sizing: border-box;
+            padding: 15px;
+            margin-top: 5px;
+            padding-left: 20px;
+            background-color: #F1F1F1;
+            height: 3em;
+            margin-bottom: 22px;
+
+            -webkit-transition: background-color 0.5s;
+            transition: background-color 0.5s;
+
+
+            transition-timing-function: ease-out;
+        }
+
+        input:focus {
+            background-color: #B1B1B1;
+        }
+
+        .red_font {
+            color: red;
+        }
+
+        form {
+            padding: 16px 16px;
+        }
+
+        .corner-radius {
+            border-radius: 0.3em;
+        }
+
+        #reg-btn {
+            background-color: green;
+            padding: 16px 20px;
+            margin-top: 8px;
+            margin-top: 8px;
+            border: none;
+            color: white;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .alreadyhave {
+            width: 100%;
+            height: 50px;
+            display: inline-block;
+            background-color: rgb(200, 200, 200);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .alreadyhave span {
+            display: block;
+            line-height: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <form action="">
+        <div id="form_container">
+            <h1>ใบสั่งซื้อหนังสือ</h1>
+            <label for='user_email' class="red_font">อีเมล*</label>
+            <span>
+                <input type='text' id='user_email' class="corner-radius" placeholder='a@b.com' required />
+            </span>
+
+            <label for='user_tel' class="red_font">เบอร์โทร*</label>
+            <span>
+                <input type='tel' id='user_tel' class="corner-radius" placeholder='123-456-789' required />
+            </span>
+
+            <label for='user_number' class="red_font">จำนวนเล่มของหนังสือ 30 ชาติเชียงราย</label>
+            <span>
+                <input type='number' id='user_number' class="corner-radius" value="1" />
+            </span>
+
+            <p>การสร้างบัญชีนี้ของคุณยอมรับ
+                <a href="javascript.html">ข้อกำหนดและความเป็นส่วนตัวของเรา</a>
+            </p>
+            <button id='reg-btn' type='submit' value='submit' class="corner-radius">สั่งซื้อ</button>
+        </div>
+    </form>
+
+    <script>
+        const emailField = document.getElementById('user_email');
+        const registBtn = document.getElementById('reg-btn');
+        const tel = document.getElementById('user_tel');
+        const countbook = document.getElementById('user_number');
+        const form_cont = document.getElementById('form_container');
+
+        registBtn.addEventListener("click", validateSubmit);
+
+        function validateSubmit() {
+            if (checkEmail(emailField.value) && checkPassword(password.value, repassword.value)) {
+                return true;
+            }
+            return false;
+        }
+
+        function checkEmail(email) {
+            var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+            if (!reg.test(email)) {
+                alert("Please enter correct email address");
+                return false;
+            }
+            return true;
+        }
+
+        function checkPassword(pass, repass) {
+            if (pass.length < 6) {
+                alert("Please have at least six characters");
+                return false;
+            }
+
+
+            var regIfHaveLetter = /^([0-9])+$/;
+            var regIfHaveNumber = /^([A-Za-z])+$/;
+            if (regIfHaveLetter.test(pass)) { //True when it contain only digit
+                alert("Please have at least one letter");
+                return false;
+            }
+            else if (regIfHaveNumber.test(pass)) { //True when it contain only letter
+                alert("Please have at least one number");
+                return false;
+            }
+
+            if (pass != repass) {
+                alert("Password and repeat password need to be the same");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+
+</body>
+
+</html>
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>KKU Places</title>
+</head>
+
+<body>
+    <ol id="myList">
+        
+        
+    </ol>
+    <script>
+
+        var req = new XMLHttpRequest();
+        req.open('GET', 'places.json');
+        req.responseType = 'json';
+        req.send()
+
+        req.onload = function () {
+
+            var myList = document.getElementById('myList');
+
+            var myArray = req.response['places'];
+            var arraySize = myArray.length;
+
+            for (var i = 0; i < arraySize; i++) {
+                var myItem = document.createElement('li');
+                var myName = document.createElement('p');
+                var myLat = document.createElement('p');
+                var myLong = document.createElement('p');
+                var myText = document.createElement('p');
+                var myImg = document.createElement('img');
+
+                myName.innerHTML = myArray[i].title;
+                myLat.innerHTML = myArray[i].lat;
+                myLong.innerHTML = myArray[i].long;
+
+                myImg.setAttribute('src', myArray[i].picture);
+
+                myText.appendChild(myName);
+                myText.appendChild(myLat);
+                myText.appendChild(myLong);
+                myText.appendChild(myImg);
+                myItem.appendChild(myText);
+                myList.appendChild(myItem);
+            }
+        }
+
+    </script>
+</body>
+
+</html>

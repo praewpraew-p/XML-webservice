@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tutorials</title>
+</head>
+
+<body>
+    <script>
+        var requestJSON = new XMLHttpRequest();
+        requestJSON.open('GET', 'tutorials.json');
+        requestJSON.responseType = 'json';
+        requestJSON.send();
+
+        requestJSON.onload = function () {
+            var objJSON = requestJSON.response;
+            var linkArray = objJSON['tutorials'];
+
+            for (var i = 0; i < linkArray.length; i++) {
+                var text = document.createElement('h1');
+                var link = document.createElement('a');
+
+                link.innerHTML = linkArray[i].display;
+                link.setAttribute('href', linkArray[i].url);
+
+                text.appendChild(link);
+                document.body.appendChild(text);
+            }
+        }
+    </script>
+</body>
+
+</html>

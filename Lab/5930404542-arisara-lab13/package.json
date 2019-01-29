@@ -1,0 +1,14 @@
+{
+  "name": "5930404542-arisara-lab13",
+  "version": "1.0.0",
+  "description": "",
+  "main": "call-ikku.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}

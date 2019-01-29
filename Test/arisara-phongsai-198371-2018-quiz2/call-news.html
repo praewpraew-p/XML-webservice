@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Call News</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <h2>Current KKU News</h2>
+    <ol></ol>
+
+    <script>
+
+        var ol = document.querySelector('ol');
+
+
+        var url = "https://www.kku.ac.th/ikku/api/news/services/topNews.php";
+        fetch(url).then(function (result) {
+            return result.json();
+        }).then(function (json) {
+            displayResults(json);
+        });
+
+        function displayResults(json) {
+            var results = json.news;
+            for (i = 0; i < results.length; i++) {
+                var result = results[i];
+                var list = document.createElement('li');
+                var img = document.createElement('img');
+                var topic = document.createElement('div');
+                var link = document.createElement('a');
+                topic.textContent = result.title;
+                link.setAttribute('href', result.url);
+                link.setAttribute('target','_blank');
+                img.setAttribute('src', result.picnewsUrl[0]);
+                link.appendChild(topic);
+                list.appendChild(link);
+                list.appendChild(img);
+                ol.appendChild(list);
+            }
+        }
+
+    </script>
+
+
+</body>
+
+</html>

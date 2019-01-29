@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Simple Calculator</title>
+        <style>
+          html {
+              font-family: sans-serif;
+          }
+          .display {
+              text-align: right;
+              color: white;
+              font-size: 12pt;
+              height: 1em;
+              padding: 15px;
+              width: 96%;
+              background-color: black;   
+          }
+          .calculator {
+              margin: auto auto;
+              width: 171pt;
+          }
+          .button {
+              display: table;
+          }
+          .cell {
+              display: table-cell;
+          }
+          .orange-btn {
+              background-color: orange;
+              border-radius: 50%;
+              width: 3.5em;
+              text-align: center;
+              padding: 20px;
+              font-size: 12pt;
+              margin: 2px;
+              border: none;
+          }
+          .numb-btn {
+              background-color: rgb(189, 183, 183);
+              border-radius: 50%;
+              width: 3.5em;
+              text-align: center;
+              padding: 20px;
+              font-size: 12pt;
+              margin: 2px;
+              border: none;
+          }
+          .zero-btn {
+              width: 7em;
+          }
+          #f-row, #s-row, #t-row, #fo-row {
+              display: table-row
+          }
+          #fi-row {
+              display: table-row
+          }
+        </style>
+    </head>
+
+
+    <body>
+        <div class="calculator">
+            <div id ="input" class ="display"></div>
+            <div class ="button">
+                <div id = "f-row">
+                        <div class = "cell"><button class = "orange-btn" id="AC">AC</button></div>
+                        <div class = "cell"><button class = "orange-btn" id="plusneg">+/-</button></div>
+                        <div class = "cell"><button class = "orange-btn" id="mod">%</button></div>
+                        <div class = "cell"><button class = "orange-btn" id="divided">/</button></div>
+                </div>
+                <div id = "s-row">
+                        <div class = "cell"><button class = "numb-btn" id="seven">7</button></div>
+                        <div class = "cell"><button class = "numb-btn" id="eight">8</button></div>
+                        <div class = "cell"><button class = "numb-btn" id="nine">9</button></div>
+                        <div class = "cell"><button class = "orange-btn" id="multi">x</button></div>
+                </div>
+                <div id = "t-row">
+                        <div class = "cell"><button class = "numb-btn" id="four">4</button></div>
+                        <div class = "cell"><button class = "numb-btn" id="five">5</button></div>
+                        <div class = "cell"><button class = "numb-btn" id="six">6</button></div>
+                        <div class = "cell"><button class = "orange-btn" id="neg">-</button></div>
+                </div>
+                <div id = "fo-row">
+                        <div class = "cell"><button class = "numb-btn" id="one">1</button></div>
+                        <div class = "cell"><button class = "numb-btn" id="two">2</button></div>
+                        <div class = "cell"><button class = "numb-btn" id="three">3</button></div>
+                        <div class = "cell"><button class = "orange-btn" id="plus">+</button></div>
+                </div>
+            </div>
+            <div id = "fi-row">
+                    <div class = "cell"><button class = "numb-btn zero-btn" id="zero">0</button></div>
+                    <div class = "cell"><button class = "numb-btn" id="point">.</button></div>
+                    <div class = "cell"><button class = "orange-btn"id="equal">=</button></div>
+            </div>
+        </div>
+
+
+        <script>
+        var textDis = document.getElementById('input');
+        
+        //reset display to nothing
+        function resetDis() {
+            textDis.textContent = "";
+        }
+
+        //calculate
+        function calculate() {
+            equa = textDis.textContent;
+            equa = equa.replace("x", "*");
+            var ans = eval(equa);
+            textDis.textContent = ans;
+        }
+
+        function addText(text, bool) {
+            var showText = textDis.textContent;
+            if (bool) {
+                showText = showText + text;
+            }
+            else {
+                if (showText.charAt(0) == "-") {
+                    showText = showText.substring(1, showText.length);
+                }
+                else
+                    showText = txt + showText;
+            }
+            textDis.textContent = showText;
+        }
+
+        document.getElementById('zero').addEventListener('click', function () { addText("0", true); });
+        document.getElementById('one').addEventListener('click', function () { addText("1", true); });
+        document.getElementById('two').addEventListener('click', function () { addText("2", true); });
+        document.getElementById('three').addEventListener('click', function () { addText("3", true); });
+        document.getElementById('four').addEventListener('click', function () { addText("4", true); });
+        document.getElementById('five').addEventListener('click', function () { addText("5", true); });
+        document.getElementById('six').addEventListener('click', function () { addText("6", true); });
+        document.getElementById('seven').addEventListener('click', function () { addText("7", true); });
+        document.getElementById('eight').addEventListener('click', function () { addText("8", true); });
+        document.getElementById('nine').addEventListener('click', function () { addText("9", true); });
+        document.getElementById('point').addEventListener('click', function () { addText(".", true); });
+        document.getElementById('plus').addEventListener('click', function () { addText("+", true); });
+        document.getElementById('neg').addEventListener('click', function () { addText("-", true); });
+        document.getElementById('multi').addEventListener('click', function () { addText("x", true); });
+        document.getElementById('divided').addEventListener('click', function () { addText("/", true); });
+        document.getElementById('mod').addEventListener('click', function () { addText("%", true); });
+        document.getElementById('plusneg').addEventListener('click', function () { addText("-", false); });
+        document.getElementById('AC').addEventListener('click', resetDis);
+        document.getElementById('equal').addEventListener('click', calculate);
+
+        </script>
+
+    </body>
+
+</html>

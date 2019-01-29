@@ -1,0 +1,15 @@
+{
+  "name": "5930404542-arisara-lab12",
+  "version": "1.0.0",
+  "description": "",
+  "main": "callingGoogleMap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http": "0.0.0",
+    "request": "^2.88.0"
+  }
+}

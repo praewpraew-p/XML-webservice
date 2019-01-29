@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Simple words generator</title>
+
+  <style>
+    body {
+      font-family: helvetica, sans-serif;
+      width: 350px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    div {
+      padding-bottom: 20px;
+    }
+
+    input[type="text"] {
+      padding: 5px;
+      width: 150px;
+    }
+
+    p {
+      background-color: yellow;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <label for="customname">Enter student name:</label>
+    <input id="customname" type="text">
+  </div>
+  <div>
+    <label for="en">English</label>
+    <input id="English" type="radio" name="enth" value="en">
+    <label for="th">Thai</label>
+    <input id="Thai" type="radio" name="enth" value="th">
+  </div>
+  <div>
+    <button id="randomize">Generate random words</button>
+  </div>
+  <p class="showText"></p>
+
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      
+      var show = document.querySelector('.showText');
+      function randomValueFromArray() {
+        var enWordsArray = ['the best', 'find', 'looking good'];
+        var thWordsArray = ['สุดยอด', 'ใจดี', 'น่ารัก'];
+
+        var randomen = enWordsArray[Math.floor(Math.random() * enWordsArray.length)];
+        var randomth = thWordsArray[Math.floor(Math.random() * thWordsArray.length)];
+        var setName = document.getElementById('customname').value;
+        if (document.getElementById('English').checked) {
+          var answer = setName + " is " + randomen;
+          show.innerHTML = answer;
+        } else if (document.getElementById('Thai').checked) {
+          var answer = setName + " เป็นคน" + randomth;
+          show.innerHTML = answer;
+        }
+      }
+
+      var buttons = document.querySelector('#randomize');
+      buttons.addEventListener('click', randomValueFromArray);
+
+    });
+
+  </script>
+
+</body>
+
+</html>

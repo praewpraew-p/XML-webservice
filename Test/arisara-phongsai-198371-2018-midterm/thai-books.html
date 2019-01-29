@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Recommended books collection</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="style/style.css" />
+</head>
+
+<body>
+    <h1>ตัวอย่างหนังสือดี 100 เล่มที่คนไทยควรอ่าน</h1>
+    <br/>
+    <div class="link">
+        <ul>
+            <li>
+                <p>
+                    <a href="index.html">Home page</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="thai-books.html">Thai books</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="eng-books.html">English books</a>
+                </p>
+            </li>
+            <li>
+                <p>
+                    <a href="links.html">Links</a>
+                </p>
+            </li>
+        </ul>
+    </div>
+    <div class="body">
+        <table>
+            <tr>
+                <th>ชื่อหนังสือ</th>
+                <th>ผู้ประพันธ์</th>
+                <th>หมวดหมู่</th>
+            </tr>
+            <tr>
+                <td>30 ชาติในเชียงราย</td>
+                <td>บุญช่วย ศรีสวัสดิ์</td>
+                <td>สังคมวิทยา, มานุษยวิทยา, ประวัติศษสตร์สังคม</td>
+            </tr>
+            <tr>
+                <td>จดหมายจากเมืองไทย</td>
+                <td>โบตั๋น</td>
+                <td>นิยาย</td>
+            </tr>
+            <tr>
+                <td>พุทธรรม</td>
+                <td>สมเด็จพระพุทธโฆษาจารย์ (ประยุทธ์ ปยูตโต)</td>
+                <td>ศาสนา</td>
+            </tr>
+            <tr>
+                <td>ความเป็นอนิจจังของสังคม</td>
+                <td>ปรีดี พนมยงค์</td>
+                <td>การเมือง</td>
+            </tr>
+        </table>
+    </div>
+    <script>
+        function oddRow() {
+            var rndCol = '#f2f2f2';
+            return rndCol;
+        }
+        function evenRow() {
+            var color = '#fefefe';
+            return color;
+        }
+        var tableElements = document.getElementsByTagName("table");
+        for (var j = 0; j < tableElements.length; j++) {
+            var table = tableElements[j];
+            var rows = table.getElementsByTagName("tr");
+            for (var i = 0; i <= rows.length; i++) {
+                if (i % 2 == 0) {
+                    rows[i].style.backgroundColor = evenRow();
+                }
+                else {
+                    rows[i].style.backgroundColor = oddRow();
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

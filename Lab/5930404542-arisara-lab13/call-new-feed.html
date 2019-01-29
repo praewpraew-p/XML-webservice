@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Call New Feed</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://vuejs.org/js/vue.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+      <feed>{{message}}</feed>
+    </div>
+
+  <script>
+    $(document).ready(function () {
+      $.ajax({
+        url: 'http://www.bangkokbiznews.com/rss/feed/technology.xml',
+        type: 'GET',
+        dataType: 'xml',
+        success: function (data) {
+          updateStage(data); // call function
+        }
+      });
+    });
+
+    function updateStage(xml) {
+      var channel = $(xml).find("channel");
+      var channel_title = channel.find("title").first().text();
+      var content = "<news_feed>";
+      content += "<channel_title>" + channel_title + "</channel_title>";
+      var items = channel.find("item");
+      $(items).each(function () {
+        content += "<item>";
+        content += "<title>" + $(this).find("title").first().text() + "</title>";
+        content += "<link>" + $(this).find("link").first().text() + "</link>";
+        content += "</item>";
+      });
+      content += "</news_feed>";
+
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: content
+        }
+      })
+    }
+
+  </script>
+
+</body>
+
+</html>

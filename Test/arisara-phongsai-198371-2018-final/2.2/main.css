@@ -1,0 +1,22 @@
+button {
+    background-color: green;
+    color: white;
+    padding: 16px 20px 16px;
+    margin: 8px 0px 8px;
+    border: none;
+    width: 100%;
+    float: right;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 22px;
+    border: none;
+    background-color: #f1f1f1;
+}
+
+label {
+    color: red;
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>The jQuery Example</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <p>Click on the button to load nation.json file</p>
+    <div id="stage" style="background-color:yellow">STAGE</div>
+    <input type="button" id="driver" value="Load Data" />
+
+    <script>
+        $(document).ready(function() {
+            $("#driver").click(function() {
+                $.ajax({
+                    url: 'nations.xml',
+                    type: 'GET',
+                    dataType: "xml",
+                    success: function(data) {
+                        parseXml(data);
+                    }
+                });
+            });
+        });
+
+        function parseXml(xml) {
+            var nations = $(xml).find("nation");
+            $("#stage").empty();
+            $("#stage").append("<ul>");
+            $(nations).each(function () {
+                $("#stage").append("<li>" + $(this).find("name").text() + ' in ' + $(this).find("location").text() + "</li>")
+            });
+            $("#stage").append("</ul>");
+        }
+    </script>
+
+</body>
+
+</html>

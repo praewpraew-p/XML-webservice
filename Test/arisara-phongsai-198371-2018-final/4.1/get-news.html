@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Get NEWS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <pre id="api-response"></pre>
+</head>
+
+<body>
+    <img src="news.jpg" />
+    <label for="keyword">Keyword:</label>
+    <br>
+    <input type="text" id="keyword" />
+    <br>
+    <input type="button" id="submit" value="Load Data" />
+    <div id="data" style="background-color:yellow"></div>
+
+
+    <script>
+        $(document).ready(function () {
+            $("#submit").click(function (event) {
+                $.getJSON('top-headlines.json', function (jd, index) {
+                    var input = $('#keyword').val();
+                    var myPattern = new RegExp('(\\w*' + input + '\\w*)', 'gi');
+                    var result = "<ul>";
+                    var j = jd['articles'];
+                    for (i = 0; i < j.length; i++) {
+                        if (j[i].title.match(myPattern)) {
+                            result += '<li>' + j[i].title + '</li>';
+                        }
+                    }
+
+                    if (!result.match(myPattern)) {
+                        result = 'No news about ' + input + ' is found.';
+                    }
+
+                    result += "</ul>";
+                    $('#data').html(result);
+                });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
